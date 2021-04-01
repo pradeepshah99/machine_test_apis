@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const candidate_data = require('../model/candidateData');
+const scoreUpdate = require('../model/scoreUpdate');
 
 router.post('/addCandidate',  async(req, res) => {
 
@@ -34,7 +35,16 @@ router.post('/addCandidate',  async(req, res) => {
     }
     }
 
-  
+})
+
+router.put('/updateScore/:id', async(req, res)=> {
+  await candidate_data.findByIdAndUpdate(req.params.id, {test1: req.body.test1, test2:req.body.test2, test3:req.body.test3}, {new:true}).then((err, result)=>{
+    if(err){res.send(err)}else
+    {
+        res.send("updatio done")
+    }
+  })
+ 
 })
     
 

@@ -9,10 +9,9 @@ let candidate = new schema(
         lastName : {type:String},
         email: {type:String},
         password : {type:String},
-        
-       
-       
-
+        test1 : Number,
+        test2 : Number,
+        test3: Number
 
     },
     {
